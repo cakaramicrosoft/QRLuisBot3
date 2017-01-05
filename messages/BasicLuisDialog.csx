@@ -29,4 +29,11 @@ public class BasicLuisDialog : LuisDialog<object>
         await context.PostAsync($"Hello! How can I help you today?"); //
         context.Wait(MessageReceived);
     }
+    [LuisIntent("flightbooking")]
+    public async Task MyIntent(IDialogContext context, LuisResult result)
+    {
+        await context.PostAsync($"I can do that! Can you tell me your arrival/departure dates and destination please?"); //
+        
+        context.Wait(MessageReceived);
+    }
 }
